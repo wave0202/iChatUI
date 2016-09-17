@@ -1,0 +1,20 @@
+<div class="m-contact" ng-show="selected != null">{{topic}}</div>
+<div class="m-message">
+    <ul>
+        <li ng-repeat="message in messages">
+            <p class="time"><span>{{message.createTime | date:'yyyy/M/d H:m:s'}}</span></p>
+            <div class="{{message.fromType}}">
+                <img class="avatar" width="30" height="30" ng-src="{{message.userAvatar}}">
+                <div class="text">{{message.record}}</div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+<div class="m-text" ng-show="selected != null">
+    <textarea placeholder="按Enter键发送，Ctrl+Enter换行" ng-model="msg"
+                  ng-keydown="enter($event)"></textarea>
+</div>
+
+<!--<textarea placeholder="按Enter键发送，Ctrl+Enter换行" ng-model="msg"
+                  ng-keypress="($event.which === 13)?sendMessage():0"></textarea>-->
